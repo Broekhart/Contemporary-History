@@ -1,11 +1,14 @@
 const icons = document.querySelectorAll('.svg');
+const hamburger = icons[0];
+const mixer = icons[1];
+const logo = document.querySelector('.logo');
 const mobileMenu = document.querySelector('.toggle_menu');
 const header = document.querySelector('header');
 
 const toggleNav = () => {
-  icons[0].classList.toggle('hidden');
-  icons[1].style.color = 'var(--white)';
-  icons[1].classList.toggle('hidden');
+  hamburger.classList.toggle('hidden');
+  logo.classList.toggle('white');
+  mixer.classList.toggle('hidden');
   mobileMenu.classList.toggle('hidden');
   header.classList.toggle('sticky');
 };

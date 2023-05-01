@@ -16,12 +16,11 @@ const currentPath = new URL(Astro.request.url).pathname;
     align-items: baseline;
   }
 
-  h2 {
+  .logo {
     color: var(--primary);
-  }
-
-  .desktop {
-    color: var(--red) !important;
+    position: relative;
+    z-index: 2;
+    font-size: 31px;
   }
 
   nav {
@@ -30,9 +29,17 @@ const currentPath = new URL(Astro.request.url).pathname;
 
   .svg {
     font-size: 27px;
-    color: black;
+    color: var(--primary);
     position: relative;
     z-index: 2;
+  }
+
+  .svg[icon='fa6-brands:mixer'] {
+    color: var(--white);
+  }
+
+  .white {
+    color: var(--white);
   }
 
   .hidden {
@@ -51,7 +58,6 @@ const currentPath = new URL(Astro.request.url).pathname;
     header {
       padding: 0.8rem 1.5rem;
       z-index: 1;
-      color: var(--red);
     }
 
     .toggle_menu {
@@ -62,7 +68,7 @@ const currentPath = new URL(Astro.request.url).pathname;
       z-index: 1;
       clip-path: circle(71.5% at 49% 50%);
       animation: 0.3s showUp linear;
-      background-color: var(--red);
+      background-color: var(--primary);
     }
 
     nav {
@@ -77,10 +83,6 @@ const currentPath = new URL(Astro.request.url).pathname;
     img {
       height: 35px;
       width: 35px;
-    }
-
-    .padding {
-      padding-inline: 1.5rem;
     }
 
     .sticky {
@@ -117,17 +119,6 @@ const currentPath = new URL(Astro.request.url).pathname;
       height: 60px;
       width: 60px;
     }
-
-    .padding {
-      padding-inline: 3rem;
-    }
-  }
-
-  @media only screen and (min-width: 1280px) {
-    .inline {
-      max-width: 1280px;
-      margin-inline: auto;
-    }
   }
 
   @keyframes showUp {
@@ -139,7 +130,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 
 <header class='padding inline'>
   <a href='/'>
-    <h2>Logo</h2>
+    <h3 class='logo'>Logo</h3>
   </a>
   <nav class='desktop'>
     <a href='/' class={currentPath === '/' ? 'active' : ''}>Home</a>

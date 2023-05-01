@@ -1,0 +1,163 @@
+<style>
+  .hero {
+    height: calc(100vh - 88px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero section {
+    max-width: 580px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-family: 'Cormorant', serif;
+    font-size: 26px;
+    margin-block: 15px 30px;
+    color: var(--grey);
+  }
+
+  span {
+    color: var(--primary);
+  }
+
+  .grid_left {
+    top: 4rem;
+    left: 3rem;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'a b'
+      'c d'
+      'e f';
+    grid-column-gap: 30px;
+  }
+
+  .grid_left *,
+  .grid_right * {
+    background: blue;
+  }
+
+  .grid_left .one {
+    grid-area: a;
+    height: 120px;
+    width: 122px;
+  }
+
+  .grid_left .two {
+    grid-area: b;
+    height: 91px;
+    width: 163px;
+  }
+
+  .grid_left .three {
+    grid-area: c;
+    height: 103px;
+    width: 122px;
+    align-self: center;
+  }
+
+  .grid_left .four {
+    grid-area: d;
+    height: 182px;
+    width: 130px;
+  }
+
+  .grid_left .five {
+    grid-area: e;
+    height: 138px;
+    width: 122px;
+  }
+
+  .grid_left .six {
+    grid-area: f;
+    height: 102px;
+    width: 130px;
+    align-self: end;
+  }
+
+  .grid_right {
+    bottom: 4rem;
+    right: 3rem;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      'b a'
+      'd c'
+      'f e';
+    grid-column-gap: 30px;
+  }
+
+  .grid_right .one {
+    grid-area: a;
+    height: 120px;
+    width: 122px;
+  }
+
+  .grid_right .two {
+    grid-area: b;
+    height: 91px;
+    width: 163px;
+  }
+
+  .grid_right .three {
+    grid-area: c;
+    height: 103px;
+    width: 122px;
+    align-self: center;
+  }
+
+  .grid_right .four {
+    grid-area: d;
+    height: 182px;
+    width: 130px;
+  }
+
+  .grid_right .five {
+    grid-area: e;
+    height: 138px;
+    width: 122px;
+  }
+
+  .grid_right .six {
+    grid-area: f;
+    height: 102px;
+    width: 130px;
+    align-self: end;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .grid_left,
+    .grid_right {
+      display: none;
+    }
+  }
+</style>
+
+<main class='hero inline padding'>
+  <section>
+    <div class='absolute grid_left'>
+      <div class='one'></div>
+      <div class='two'></div>
+      <div class='three'></div>
+      <div class='four'></div>
+      <div class='five'></div>
+      <div class='six'></div>
+    </div>
+    <h1>Scopri la magia della storia <span>contemporanea</span></h1>
+    <h2 class='subtitle'>
+      Dalla nascita delle nazioni moderne alla caduta dei regimi totalitari. In modo semplice
+    </h2>
+    <button>Inizia subito</button>
+    <div class='absolute grid_right'>
+      <div class='one'></div>
+      <div class='two'></div>
+      <div class='three'></div>
+      <div class='four'></div>
+      <div class='five'></div>
+      <div class='six'></div>
+    </div>
+  </section>
+</main>

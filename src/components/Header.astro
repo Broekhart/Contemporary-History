@@ -1,0 +1,166 @@
+---
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<style>
+  img {
+    width: 80px;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  h2 {
+    color: var(--primary);
+  }
+
+  .desktop {
+    color: var(--red) !important;
+  }
+
+  nav {
+    font-weight: 600;
+  }
+
+  .svg {
+    font-size: 27px;
+    color: black;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .active {
+    color: var(--primary);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .desktop {
+      display: none;
+    }
+
+    header {
+      padding: 0.8rem 1.5rem;
+      z-index: 1;
+      color: var(--red);
+    }
+
+    .toggle_menu {
+      position: fixed;
+      inset: 0;
+      height: 100%;
+      padding: 5rem 1.5rem;
+      z-index: 1;
+      clip-path: circle(71.5% at 49% 50%);
+      animation: 0.3s showUp linear;
+      background-color: var(--red);
+    }
+
+    nav {
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      gap: 20px;
+      color: var(--white);
+    }
+
+    img {
+      height: 35px;
+      width: 35px;
+    }
+
+    .padding {
+      padding-inline: 1.5rem;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .mobile {
+      display: none;
+    }
+
+    header {
+      color: var(--bg-button-h1-dark);
+      padding: 0.5rem 3rem;
+      height: calc(80px - 0.5rem);
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: var(--h2-dark);
+      transition: 0.5s;
+      position: relative;
+      z-index: 1;
+      padding: 0.2rem 0.8rem;
+    }
+
+    img {
+      height: 60px;
+      width: 60px;
+    }
+
+    .padding {
+      padding-inline: 3rem;
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .padding {
+      max-width: 1280px;
+      margin-inline: auto;
+    }
+  }
+
+  @keyframes showUp {
+    0% {
+      clip-path: circle(8.5% at 98% 3%);
+    }
+  }
+</style>
+
+<header class='padding'>
+  <a href='/'>
+    <h2>Logo</h2>
+  </a>
+  <nav class='desktop'>
+    <a href='/' class={currentPath === '/' ? 'active' : ''}>Home</a>
+    <a href='/capitoli'>Capitoli</a>
+    <a>Chi sono</a>
+    <a>Contatti</a>
+  </nav>
+  <section class='mobile'>
+    <iconify-icon class='svg' icon='fa-solid:stream'></iconify-icon>
+    <iconify-icon class='svg hidden' icon='fa6-brands:mixer'></iconify-icon>
+    <div class='toggle_menu hidden'>
+      <nav>
+        <a>Home</a>
+        <a>Le guerre</a>
+        <a>Protagonisti</a>
+        <a>Contattami</a>
+      </nav>
+    </div>
+  </section>
+</header>
+
+<script>
+  import '../scripts/header.js';
+</script>

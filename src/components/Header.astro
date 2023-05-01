@@ -124,7 +124,7 @@ const currentPath = new URL(Astro.request.url).pathname;
   }
 
   @media only screen and (min-width: 1280px) {
-    .padding {
+    .inline {
       max-width: 1280px;
       margin-inline: auto;
     }
@@ -137,7 +137,7 @@ const currentPath = new URL(Astro.request.url).pathname;
   }
 </style>
 
-<header class='padding'>
+<header class='padding inline'>
   <a href='/'>
     <h2>Logo</h2>
   </a>
